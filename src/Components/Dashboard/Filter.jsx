@@ -15,40 +15,48 @@ const Filter = () => {
   return (
     <div className="relative w-full">
       {/* Top bar */}
-      <div className="flex flex-wrap justify-between items-center gap-2">
+      <div className="flex md:flex-wrap justify-between items-center md:gap-2">
         <div
-          className="flex items-center rounded-xl p-2 gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white"
+          className="flex items-center w-1/4 rounded-md sm:w-fit md:rounded-xl p-1 md:p-2 gap-1 md:gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white"
           onClick={toggleFilter}
         >
-          <FaFilter className="w-4 h-4" />
-          <h1 className="text-base font-semibold">Filter</h1>
+          <img src="/assets/Set.png" className="w-3 md:w-5 md:h-5" />
+          <h1 className="font-medium text-sm md:text-base  md:font-semibold">
+            Filter
+          </h1>
         </div>
 
-        <div className="flex flex-wrap justify-end gap-2 w-full sm:w-auto">
+        <div className="flex md:flex-wrap justify-end gap-1 md:gap-2 w-full sm:w-auto">
           <div
-            className="flex items-center rounded-xl p-2 gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white"
+            className="flex items-center rounded-md md:rounded-xl p-1 md:p-2 gap-1 md:gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white"
             onClick={toggleShipmentDrawer}
           >
-            <img src="/assets/Plus.png" className="w-4 h-4" />
-            <h1 className="text-base font-semibold">New Shipment</h1>
+            <img src="/assets/Plus.png" className="w-3 md:w-4 md:h-4" />
+            <h1 className="font-medium text-sm md:text-base md:font-semibold">
+              New Shipment
+            </h1>
           </div>
           <div
-            className="flex items-center rounded-xl p-2 gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white"
+            className="flex items-center rounded-md md:rounded-xl p-1 md:p-2 gap-1 md:gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white"
             onClick={toggleVahicalDrawer}
           >
-            <img src="/assets/Truck.png" className="w-5 h-5" />
-            <h1 className="text-base font-semibold">Add Vehicle</h1>
+            <img src="/assets/Truck.png" className="w-3 md:w-5 md:h-5" />
+            <h1 className="text-sm md:text-base font-medium md:font-semibold">
+              Add Vehicle
+            </h1>
           </div>
-          <div className="flex items-center rounded-xl p-2 gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white">
-            <MdReport className="w-5 h-5" />
-            <h1 className="text-base font-semibold">Report</h1>
+          <div className="md:block hidden">
+            <div className="flex items-center rounded-xl p-2 gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white">
+              <img src="/assets/Set.png" className="w-5 h-5" />
+              <h1 className="text-base font-semibold">Report</h1>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Filter Modal */}
       {showFilter && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex justify-center items-center p-4">
+        <div className=" fixed inset-0 z-50 bg-black/50 flex justify-center items-center p-4">
           <div className="w-full max-w-md bg-white rounded-xl shadow-2xl p-4 relative overflow-y-auto max-h-[90vh]">
             <div className="flex justify-between items-center mb-3">
               <h2 className="font-semibold text-lg">Filters</h2>

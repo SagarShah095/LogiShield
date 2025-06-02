@@ -2,9 +2,9 @@ import React from "react";
 
 const Summary = () => {
   return (
-    <div className="bg-white p-7 rounded-lg">
+    <div className="bg-white  p-7 rounded-lg">
         <h1 className="font-bold">Alerts Summary</h1>
-      <div className="mt-5 grid grid-cols-3 gap-10">
+      <div className="mt-5 grid grid-cols-1  md:grid-cols-3 gap-10">
         <div className="flex justify-between border p-4 rounded-lg">
           <div className="space-y-7">
             <img src="/assets/warning.png" className="w-fit h-12" alt="" />

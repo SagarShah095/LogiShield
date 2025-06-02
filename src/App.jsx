@@ -1,15 +1,23 @@
-import { useState } from "react";
-import Sidebar from "./Common/Sidebar";
-import Dashboard from "./Pages/Dashboard";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Sidebar from './Common/Sidebar';
+import Dashboard from './Pages/Dashboard';
+import Shipment from './Pages/Shipment';
 
 function App() {
   return (
-    <>
+    <Router>
       <div className="flex bg-[#F9F9F9] w-full">
         <Sidebar />
-        <Dashboard />
+        <div className="w-full p-4">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/shipment" element={<Shipment />} />
+            {/* <Route path="/management" element={<Management />} /> */}
+            {/* <Route path="/alert-center" element={<AlertCenter />} /> */}
+          </Routes>
+        </div>
       </div>
-    </>
+    </Router>
   );
 }
 

@@ -1,13 +1,13 @@
 import React from "react";
-import Navbar from "../Components/Navbar";
-import Filter from "../Components/Filter";
-import Section1 from "../Components/Section1";
-import Chart from "../Components/Chart";
-import Summary from "../Components/Summary";
+import Navbar from "../Components/Dashboard/Navbar";
+import Filter from "../Components/Dashboard/Filter";
+import Section1 from "../Components/Dashboard/Section1";
+import Chart from "../Components/Dashboard/Chart";
+import Summary from "../Components/Dashboard/Summary";
 
 const Dashboard = () => {
   return (
-    <div className="container mx-auto w-full px-4 ">
+    <div className="md:container md:mx-auto w-fit md:w-full px-1 md:px-4">
       <Navbar />
       <Filter />
       <Section1/>

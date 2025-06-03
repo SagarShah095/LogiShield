@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 
-const NavbarShipment = () => {
+const NavbarManagement = () => {
   const [showNotifications, setShowNotifications] = useState(false);
   const notifRef = useRef();
 
@@ -16,9 +16,9 @@ const NavbarShipment = () => {
 
   return (
     <div className="container mx-auto relative">
-      <div className="my-4 flex items-center md:justify-between w-full">
+      <div className="my-4 flex items-center justify-between w-full">
         <div className="flex">
-          <h1 className="text-xl md:text-2xl  font-bold">Shipment Tracker Page</h1>
+          <h1 className="text-2xl font-bold">Fleet & Driver Managment</h1>
         </div>
 
         <div className="flex gap-2 relative">
@@ -91,4 +91,4 @@ const NavbarShipment = () => {
   );
 };
 
-export default NavbarShipment;
+export default NavbarManagement;

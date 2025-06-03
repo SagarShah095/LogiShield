@@ -14,11 +14,16 @@ const Sidebar = () => {
     setIsOpen(!isOpen);
   };
 
+  const handleTrue = activeMenu === "Alert center" ? true : false;
+  // console.log("Is True:", handleTrue);
+
+  // console.log("Active Menu:", activeMenu);
+
   return (
     <div
       className={`${
         isOpen ? "absolute left-0 top-0 z-50 w-3/4" : "w-[20%] md:w-1/4"
-      } h-screen bg-white transition-all duration-300 ease-in-out `}
+      } h-screen bg-white transition-all duration-300 ease-in-out flex flex-col justify-between `}
     >
       <div className="container mx-auto">
         {/* Logo Section */}
@@ -91,28 +96,38 @@ const Sidebar = () => {
             <div key={idx} className="flex justify-center">
               <NavLink
                 to={item.to}
-                onClick={() => setActiveMenu(item.label)}
-                className={`flex justify-center rounded-xl p-3 cursor-pointer w-fit duration-200 ${
-                  activeMenu === item.label
-                    ? "bg-[#0D47A1] text-white"
-                    : "hover:bg-gray-200/70"
-                }`}
+                className={({ isActive }) =>
+                  `flex justify-center rounded-xl p-3 cursor-pointer w-fit duration-200 ${
+                    isActive
+                      ? "bg-[#0D47A1] text-white"
+                      : "hover:bg-gray-200/70"
+                  }`
+                }
               >
-                <div className="font-nunito flex w-fit gap-3 justify-between items-center">
-                  <span>{item.icon}</span>
-                  <h1
-                    className={`${isOpen ? "block" : "hidden"} ${
-                      activeMenu === item.label ? "text-white" : "text-black/80"
-                    } font-medium md:block`}
-                  >
-                    {item.label}
-                  </h1>
-                </div>
+                {({ isActive }) => (
+                  <div className="font-nunito flex w-fit gap-3 justify-between items-center">
+                    <span>{item.icon}</span>
+                    <h1
+                      className={`${isOpen ? "block" : "hidden"} ${
+                        isActive ? "text-white" : "text-black/80"
+                      } font-medium md:block`}
+                      onClick={() => setActiveMenu(item.label)}
+                    >
+                      {item.label}
+                    </h1>
+                  </div>
+                )}
               </NavLink>
             </div>
           ))}
         </div>
       </div>
+        {handleTrue && (
+            <div className="flex justify-center items-end gap-3 p-3 cursor-pointer hover:bg-gray-200/70 duration-200">
+              <img src="/assets/exit.png" alt="" />
+              <h1 className="font-medium text-[#C72424]">Alert center</h1>
+            </div>
+        )}
     </div>
   );
 };

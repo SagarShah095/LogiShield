@@ -3,63 +3,85 @@ import { MdOutlineRemoveRedEye } from "react-icons/md";
 import { CiMenuKebab } from "react-icons/ci";
 import { FaLessThan } from "react-icons/fa6";
 import { FaGreaterThan } from "react-icons/fa6";
-import ShipmentModal from "./ShipmentModal";
-import "../../index.css";
+import ShipmentModal from "./../Shipment/ShipmentModal";
+import { FiAlertTriangle } from "react-icons/fi";
 
-const Table = () => {
+const Table1 = () => {
   const tableData = [
     {
-      title: "#SH10298",
-      status: "In Transit",
-      origin: "New York",
-      destination: "Toronto, Canada",
-      time: "11:30 AM",
-      driver: "John Carter",
-      vehicle: "TRK392",
+      title: "TRK128",
+      status: "Active",
+      origin: "Box Tuck",
+      destination: "2 Hr ago",
+      time: "EU-West",
+      driver: "92%",
+      vehicle: `2`,
       btn1: <MdOutlineRemoveRedEye />,
       btn2: <CiMenuKebab />,
     },
     {
-      title: "#SH10298",
-      status: "In Transit",
-      origin: "New York",
-      destination: "Toronto, Canada",
-      time: "11:30 AM",
-      driver: "John Carter",
-      vehicle: "TRK392",
+      title: "TRK128",
+      status: "Active",
+      origin: "Box Tuck",
+      destination: "2 Hr ago",
+      time: "EU-West",
+      driver: "92%",
+      vehicle: `2 `,
       btn1: <MdOutlineRemoveRedEye />,
       btn2: <CiMenuKebab />,
     },
     {
-      title: "#SH10298",
-      status: "In Transit",
-      origin: "New York",
-      destination: "Toronto, Canada",
-      time: "11:30 AM",
-      driver: "John Carter",
-      vehicle: "TRK392",
+      title: "TRK128",
+      status: "Active",
+      origin: "Box Tuck",
+      destination: "2 Hr ago",
+      time: "EU-West",
+      driver: "92%",
+      vehicle: `2 `,
       btn1: <MdOutlineRemoveRedEye />,
       btn2: <CiMenuKebab />,
     },
     {
-      title: "#SH10298",
-      status: "In Transit",
-      origin: "New York",
-      destination: "Toronto, Canada",
-      time: "11:30 AM",
-      driver: "John Carter",
-      vehicle: "TRK392",
+      title: "TRK128",
+      status: "Active",
+      origin: "Box Tuck",
+      destination: "2 Hr ago",
+      time: "EU-West",
+      driver: "92%",
+      vehicle: `2 `,
       btn1: <MdOutlineRemoveRedEye />,
       btn2: <CiMenuKebab />,
     },
     {
-      title: "#SH10298",
-      status: "In Transit",
-      origin: "New York",
-      destination: "Toronto, Canada",
-      time: "11:30 AM",
-      driver: "John Carter",
-      vehicle: "TRK392",
+      title: "TRK128",
+      status: "Active",
+      origin: "Box Tuck",
+      destination: "2 Hr ago",
+      time: "EU-West",
+      driver: "92%",
+      vehicle: `2 `,
+      btn1: <MdOutlineRemoveRedEye />,
+      btn2: <CiMenuKebab />,
+    },
+    {
+      title: "TRK128",
+      status: "Active",
+      origin: "Box Tuck",
+      destination: "2 Hr ago",
+      time: "EU-West",
+      driver: "92%",
+      vehicle: `2 `,
+      btn1: <MdOutlineRemoveRedEye />,
+      btn2: <CiMenuKebab />,
+    },
+    {
+      title: "TRK128",
+      status: "Active",
+      origin: "Box Tuck",
+      destination: "2 Hr ago",
+      time: "EU-West",
+      driver: "92%",
+      vehicle: `2 `,
       btn1: <MdOutlineRemoveRedEye />,
       btn2: <CiMenuKebab />,
     },
@@ -73,45 +95,32 @@ const Table = () => {
     setIsModalOpen(true);
   };
   return (
-    <div className="h-screen max-w-[250px] md:max-w-full overflow-y-auto md:p-4">
-      <div className="text-black scrollbar-hide relative sm:rounded-lg overflow-scroll  max-h-[500px]">
-        <table className=" w-full text-sm text-left rtl:text-right text-gray-500 ">
-          <thead className="text-xs text-gray-700 uppercase bg-gray-50  ">
+    <div className="h-screen">
+      <h1 className="text-xl font-bold mb-4">Vehical</h1>
+      <div className="text-black relative overflow-x-auto sm:rounded-lg">
+        <table className="w-full text-sm text-left rtl:text-right text-gray-500 ">
+          <thead className="text-xs text-gray-700 uppercase bg-[#F5F8FF] ">
             <tr>
-              <th scope="col" className="p-4">
-                <div className="flex items-center">
-                  <input
-                    id="checkbox-all-search"
-                    type="checkbox"
-                    className="w-4 h-4 text-blue-600 bg-gray-100 
-                        border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600 
-                         dark:focus:ring-offset-gray-800 focus:ring-2  "
-                  />
-                  <label for="checkbox-all-search" className="sr-only">
-                    checkbox
-                  </label>
-                </div>
-              </th>
               <th scope="col" className="px-6 py-3">
-                Shipment ID
+                Vehical ID
               </th>
               <th scope="col" className="px-6 py-3">
                 Status
               </th>
               <th scope="col" className="px-6 py-3">
-                Origin
+                Type
               </th>
               <th scope="col" className="px-6 py-3">
-                Destination
+                Last Used
               </th>
               <th scope="col" className="px-6 py-3">
-                ETA
+                Region
               </th>
               <th scope="col" className="px-6 py-3">
-                Driver
+                Health Score
               </th>
               <th scope="col" className="px-6 py-3">
-                Vehical ID
+                Alerts
               </th>
               <th scope="col" className="px-6 py-3">
                 Actions
@@ -122,20 +131,8 @@ const Table = () => {
             {tableData.map((item, index) => (
               <tr
                 key={index}
-                className="bg-white border-b  border-gray-200 hover:bg-gray-50 text-black"
+                className="bg-white border-b w-full border-gray-200 hover:bg-gray-50 text-black"
               >
-                <td className="w-4 p-4">
-                  <div className="flex items-center">
-                    <input
-                      id="checkbox-table-search-1"
-                      type="checkbox"
-                      className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded-sm focus:ring-blue-500 dark:focus:ring-blue-600  dark:focus:ring-offset-gray-800 focus:ring-2  "
-                    />
-                    <label for="checkbox-table-search-1" className="sr-only">
-                      checkbox
-                    </label>
-                  </div>
-                </td>
                 <th
                   scope="row"
                   className="px-6 py-4 font-medium  whitespace-nowrap "
@@ -147,12 +144,24 @@ const Table = () => {
                 <td className="px-6 py-4">{item.destination}</td>
                 <td className="px-6 py-4">{item.time}</td>
                 <td className="px-6 py-4">{item.driver}</td>
-                <td className="px-6 py-4">{item.vehicle}</td>
-                <td className="px-6 py-4 flex gap-2">
-                  <button onClick={() => handleViewClick(item)}>
-                    {item.btn1}
-                  </button>
-                  <button>{item.btn2}</button>
+                <td className="px-6 py-4">
+                  <div className="flex items-center gap-1">
+                    {item.vehicle}
+                    <span>
+                      <FiAlertTriangle />
+                    </span>
+                  </div>
+                </td>
+
+                <td className="px-6 py-4">
+                  <div className="flex gap-2">
+                    <button onClick={() => handleViewClick(item)}>
+                      {item.btn1}
+                    </button>
+                    <button onClick={() => handleViewClick(item)}>
+                      {item.btn2}
+                    </button>
+                  </div>
                 </td>
               </tr>
             ))}
@@ -212,4 +221,4 @@ const Table = () => {
   );
 };
 
-export default Table;
+export default Table1;

@@ -7,14 +7,14 @@ import Table from './../Components/Shipment/Table';
 
 const Shipment = () => {
   return (
-    <div>
+    <div className="md:container md:mx-auto w-fit md:w-full px-1 md:px-4">
       <NavbarShipment />
       <Export />
-      <div className="bg-white mt-10 p-4 rounded-xl">
+      {/* <div className="bg-white mt-10 p-4 rounded-xl"> */}
         <ShipFilter />
         <Date />
         <Table />
-      </div>
+      {/* </div> */}
     </div>
   );
 };

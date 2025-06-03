@@ -16,7 +16,7 @@ const Export = () => {
   return (
     <div className="relative w-full">
       {/* Top bar */}
-      <div className="flex mt-10 justify-between w-full items-center md:gap-2">
+      <div className="w-fit space-y-3 md:space-y-0 md:flex mt-10 justify-between md:w-full items-center md:gap-2">
         <div className="relative w-full">
           <input
             type="text"
@@ -26,27 +26,26 @@ const Export = () => {
           <IoSearch className="absolute top-1/3 left-5 text-[#00000047] " />
         </div>
 
-        <div className="flex justify-end gap-1 md:gap-2 w-full md:w-full sm:w-auto">
-          
+        <div className="overflow-scroll scrollbar-hide flex md:justify-end gap-1 md:gap-2 w-full md:w-full sm:w-auto">
           <div
             className="flex items-center rounded-md md:rounded-xl p-1 md:p-2 gap-1 md:gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white"
           >
-            <h1 className="text-sm md:text-base font-medium md:font-semibold">
+            <h1 className=" text-xs md:text-base font-semibold">
               Bulk Update Status
             </h1>
           </div>
-          <div className="md:block hidden">
-            <div className="flex items-center rounded-xl p-2 gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white">
-              <HiDownload className="w-5 h-5" />
-              <h1 className="text-base font-semibold">Export CSV</h1>
+          <div>
+            <div className="flex items-center rounded-md md:rounded-xl p-1 md:p-2 gap-1 md:gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white">
+              <HiDownload className="h-3 w-3 md:w-5 md:h-5" />
+              <h1 className=" text-xs md:text-base font-semibold">Export CSV</h1>
             </div>
           </div>
           <div
             className="flex items-center rounded-md md:rounded-xl p-1 md:p-2 gap-1 md:gap-2 cursor-pointer hover:bg-blue-900 bg-[#0D47A1] text-white"
             onClick={toggleShipmentDrawer}
           >
-            <img src="/assets/Plus.png" className="w-3 md:w-4 md:h-4" />
-            <h1 className="font-medium text-sm md:text-base md:font-semibold">
+            <img src="/assets/Plus.png" className="w-2 h-2 md:w-4 md:h-4" />
+            <h1 className=" text-xs md:text-base font-semibold">
               New Shipment
             </h1>
           </div>

@@ -2,6 +2,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Sidebar from './Common/Sidebar';
 import Dashboard from './Pages/Dashboard';
 import Shipment from './Pages/Shipment';
+import Management from "./Pages/Management";
+import AlertCenter from "./Pages/AlertCenter";
 
 function App() {
   return (
@@ -12,8 +14,8 @@ function App() {
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/shipment" element={<Shipment />} />
-            {/* <Route path="/management" element={<Management />} /> */}
-            {/* <Route path="/alert-center" element={<AlertCenter />} /> */}
+            <Route path="/management" element={<Management />} />
+            <Route path="/alert-center" element={<AlertCenter />} />
           </Routes>
         </div>
       </div>

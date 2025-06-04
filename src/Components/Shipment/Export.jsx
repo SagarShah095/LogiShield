@@ -4,6 +4,7 @@ import { MdReport } from "react-icons/md";
 import { FaFilter } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { HiDownload } from "react-icons/hi";
+import { AnimatePresence, motion } from 'framer-motion';
 
 const Export = () => {
   const [showFilter, setShowFilter] = useState(false);
@@ -55,114 +56,143 @@ const Export = () => {
       {/* Filter Modal */}
 
       {/* Right-side New Shipment Drawer */}
-      {showShipmentDrawer && (
-        <div className="fixed inset-0 z-50 bg-black/50 flex justify-end">
-          <div className="w-full max-w-md bg-white h-full shadow-xl p-5 overflow-y-auto">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold">New Shipment</h2>
-              <button onClick={toggleShipmentDrawer}>
-                <IoClose size={24} />
-              </button>
-            </div>
-
-            {/* Add form content here based on the screenshot */}
-            <form className="space-y-4">
-              <div>
-                <label className="block font-medium mb-1">Shipment Type</label>
-                <select className="w-full border rounded-lg p-2">
-                  <option>Package</option>
-                  <option>Container</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block font-medium mb-1">Priority Level</label>
-                <select className="w-full border rounded-lg p-2">
-                  <option>Standard</option>
-                  <option>Express</option>
-                </select>
-              </div>
-
-              <div>
-                <label className="block font-medium mb-1">Shipping Date</label>
-                <input type="date" className="w-full border rounded-lg p-2" />
-              </div>
-
-              <div>
-                <label className="block font-medium mb-1">Sender Name</label>
-                <input
-                  type="text"
-                  placeholder="Ex: Radhakrishna swami"
-                  className="w-full border rounded-lg p-2"
-                />
-              </div>
-
-              <div>
-                <label className="block font-medium mb-1">Pickup Address</label>
-                <textarea
-                  placeholder="Ex: 139 Chennai Trunk Road"
-                  className="w-full border rounded-lg p-2"
-                />
-              </div>
-
-              <div>
-                <label className="block font-medium mb-1">Phone Number</label>
-                <input
-                  type="text"
-                  placeholder="XXXXXXXX52"
-                  className="w-full border rounded-lg p-2"
-                />
-              </div>
-
-              <div>
-                <label className="block font-medium mb-1">Receiver Name</label>
-                <input
-                  type="text"
-                  placeholder="Ex: rajesh joshi"
-                  className="w-full border rounded-lg p-2"
-                />
-              </div>
-
-              <div>
-                <label className="block font-medium mb-1">
-                  Delivery Address
-                </label>
-                <textarea
-                  placeholder="Ex: 304 shree ram com"
-                  className="w-full border rounded-lg p-2"
-                />
-              </div>
-
-              <div>
-                <label className="block font-medium mb-1">Receiver Phone</label>
-                <input
-                  type="text"
-                  placeholder="XXXXXXXX85"
-                  className="w-full border rounded-lg p-2"
-                />
-              </div>
-
-              <div>
-                <label className="block font-medium mb-1">Item Weight</label>
-                <input
-                  type="text"
-                  placeholder="1.5 lb"
-                  className="w-full border rounded-lg p-2"
-                />
-              </div>
-
-              <div className="flex justify-end">
-                <button
-                  type="submit"
-                  className="bg-[#0D47A1] text-white px-4 py-2 rounded-lg hover:bg-blue-900"
+      <AnimatePresence>
+        {showShipmentDrawer && (
+          <motion.div
+            className="fixed inset-0 z-50 bg-black/50 flex justify-end"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              className="w-full max-w-md bg-white h-full shadow-xl p-5 overflow-y-auto"
+            >
+              <div className="flex justify-between items-center mb-4">
+                <h2 className="text-lg font-semibold">New Shipment</h2>
+                <motion.button
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.95 }}
+                  onClick={toggleShipmentDrawer}
                 >
-                  Submit
-                </button>
+                  <IoClose size={24} />
+                </motion.button>
               </div>
-            </form>
-          </div>
-        </div>
-      )}
+
+              {/* Shipment Form Content */}
+              <form className="space-y-4">
+                <div>
+                  <label className="block font-medium mb-1">
+                    Shipment Type
+                  </label>
+                  <select className="w-full border rounded-lg p-2">
+                    <option>Package</option>
+                    <option>Container</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-1">
+                    Priority Level
+                  </label>
+                  <select className="w-full border rounded-lg p-2">
+                    <option>Standard</option>
+                    <option>Express</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-1">
+                    Shipping Date
+                  </label>
+                  <input type="date" className="w-full border rounded-lg p-2" />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-1">Sender Name</label>
+                  <input
+                    type="text"
+                    placeholder="Ex: Radhakrishna swami"
+                    className="w-full border rounded-lg p-2"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-1">
+                    Pickup Address
+                  </label>
+                  <textarea
+                    placeholder="Ex: 139 Chennai Trunk Road"
+                    className="w-full border rounded-lg p-2"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-1">Phone Number</label>
+                  <input
+                    type="text"
+                    placeholder="XXXXXXXX52"
+                    className="w-full border rounded-lg p-2"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-1">
+                    Receiver Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Ex: rajesh joshi"
+                    className="w-full border rounded-lg p-2"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-1">
+                    Delivery Address
+                  </label>
+                  <textarea
+                    placeholder="Ex: 304 shree ram com"
+                    className="w-full border rounded-lg p-2"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-1">
+                    Receiver Phone
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="XXXXXXXX85"
+                    className="w-full border rounded-lg p-2"
+                  />
+                </div>
+
+                <div>
+                  <label className="block font-medium mb-1">Item Weight</label>
+                  <input
+                    type="text"
+                    placeholder="1.5 lb"
+                    className="w-full border rounded-lg p-2"
+                  />
+                </div>
+
+                <div className="flex justify-end">
+                  <button
+                    type="submit"
+                    className="bg-[#0D47A1] text-white px-4 py-2 rounded-lg hover:bg-blue-900"
+                  >
+                    Submit
+                  </button>
+                </div>
+              </form>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       
     </div>

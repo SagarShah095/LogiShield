@@ -10,7 +10,7 @@ function App() {
     <Router>
       <div className="flex bg-[#F9F9F9] w-full">
         <Sidebar />
-        <div className="w-full p-4">
+        <div className="w-full mt-14 md:mt-0 p-4">
           <Routes>
             <Route path="/" element={<Dashboard />} />
             <Route path="/shipment" element={<Shipment />} />

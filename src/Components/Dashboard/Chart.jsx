@@ -10,6 +10,7 @@ import {
 } from "recharts";
 import { MapPin } from "lucide-react";
 import { RiArrowDropDownLine } from "react-icons/ri";
+import "../../index.css"; // Ensure you have the correct path to your CSS file
 
 const data = [
   { day: "Sunday", red: 500, blue: 2000 },
@@ -25,24 +26,26 @@ const Chart = () => {
   return (
     <div className="mt-3 justify-between p-4 flex flex-col lg:flex-row gap-4">
       {/* Profit Bar Chart */}
-      <div className="flex-1 bg-white  rounded-2xl p-4">
-        <div className="flex justify-between items-center mb-4">
-          <h2 className="text-xl font-semibold">Profit</h2>
-          <button className="bg-[#0D47A1] hover:bg-blue-900 duration-200 text-white px-4 flex items-center justify-center py-1 rounded-md">
-            Week
-            <RiArrowDropDownLine className="h-5 w-fit" />
-          </button>
+      <div className="w-full max-w-[18rem] md:max-w-[50%] bg-white scrollbar-hide overflow-x-scroll  rounded-2xl p-4">
+        <div className="min-w-[30rem] md:min-w-full">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-semibold">Profit</h2>
+            <button className="bg-[#0D47A1] hover:bg-blue-900 duration-200 text-white px-4 flex items-center justify-center py-1 rounded-md">
+              Week
+              <RiArrowDropDownLine className="h-5 w-fit" />
+            </button>
+          </div>
+          <ResponsiveContainer width="100%" height={450} className={"h-1/4"}>
+            <BarChart data={data}>
+              <CartesianGrid strokeDasharray="3 3" />
+              <XAxis dataKey="day" />
+              <YAxis />
+              <Tooltip />
+              <Bar dataKey="red" fill="#ff2e2e" />
+              <Bar className="rounded-t-fu" dataKey="blue" fill="#0045ff" />
+            </BarChart>
+          </ResponsiveContainer>
         </div>
-        <ResponsiveContainer width="100%" height={450} className={"h-1/4"}>
-          <BarChart data={data}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="day" />
-            <YAxis />
-            <Tooltip />
-            <Bar dataKey="red" fill="#ff2e2e" />
-            <Bar className="rounded-t-fu" dataKey="blue" fill="#0045ff" />
-          </BarChart>
-        </ResponsiveContainer>
       </div>
 
       {/* Map Section */}
@@ -62,20 +65,32 @@ const Chart = () => {
           <div className="flex md:gap-2 items-center">
             <div className="flex text-xs font-medium   gap-2 items-center ">
               <span>
-                <img src="/assets/Green.png" alt="" className="h-5 w-fit md:block hidden" />
+                <img
+                  src="/assets/Green.png"
+                  alt=""
+                  className="h-5 w-fit md:block hidden"
+                />
               </span>
               On-time
             </div>
             <div className="flex text-xs font-medium  items-center gap-2 ">
               <span>
                 {" "}
-                <img src="/assets/Yellow.png" alt="" className="h-5 w-fit md:block hidden" />
+                <img
+                  src="/assets/Yellow.png"
+                  alt=""
+                  className="h-5 w-fit md:block hidden"
+                />
               </span>
               In-transit
             </div>
             <div className="flex text-xs font-medium  items-center gap-2 ">
               <span>
-                <img src="/assets/Red.png" alt="" className="h-5 w-fit md:block hidden" />
+                <img
+                  src="/assets/Red.png"
+                  alt=""
+                  className="h-5 w-fit md:block hidden"
+                />
               </span>
               Delayed
             </div>

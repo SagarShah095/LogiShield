@@ -73,7 +73,7 @@ const Table = () => {
     setIsModalOpen(true);
   };
   return (
-    <div className="h-screen max-w-[250px] md:max-w-full overflow-y-auto md:p-4">
+    <div className="h-screen max-w-[300px] md:max-w-full overflow-y-auto md:p-4">
       <div className="text-black scrollbar-hide relative sm:rounded-lg overflow-scroll  max-h-[500px]">
         <table className=" w-full text-sm text-left rtl:text-right text-gray-500 ">
           <thead className="text-xs text-gray-700 uppercase bg-gray-50  ">

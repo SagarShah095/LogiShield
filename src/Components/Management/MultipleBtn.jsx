@@ -20,7 +20,7 @@ const MultipleBtn = () => {
   ];
 
   return (
-    <div className="bg-white p-5 h-screen">
+    <div className="bg-white mt-5 p-5 h-screen">
       <div className="flex">
         <div
           className={`gap-3 flex py-10 transition-all duration-300 ease-in-out ${
@@ -42,9 +42,12 @@ const MultipleBtn = () => {
                       : "border border-white text-black"
                   }`}
                 >
-                  <div className="font-nunito flex w-fit gap-3 justify-between items-center">
+                  <div className="font-nunito flex w-fit
+                  
+                  
+                  gap-3 justify-between items-center">
                     <h1
-                      className={`${isOpen ? "block" : "hidden"} ${
+                      className={`${
                         isActive ? "text-[#0D47A1]" : "text-black/80"
                       } font-medium md:block `}
                     >

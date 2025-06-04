@@ -19,7 +19,7 @@ const NavbarAlertCenter = () => {
     <div className="container mx-auto relative">
       <div className="my-4 flex items-center justify-between w-full">
         <div className="flex">
-          <h1 className="text-2xl font-bold">Incident & Alert Center</h1>
+          <h1 className="text-xl md:text-2xl font-bold">Incident & Alert Center</h1>
         </div>
 
         <div className="flex gap-2 relative">

@@ -1,5 +1,6 @@
 import React from "react";
 import AlertTable from './AlertTable';
+import "../../index.css"
 
 const AlertHeader = () => {
   const [isOpen, setIsOpen] = React.useState(false);
@@ -23,7 +24,7 @@ const AlertHeader = () => {
     <div className="bg-white p-5 h-screen">
       <div className="flex">
         <div
-          className={`gap-3 flex py-10 transition-all duration-300 ease-in-out ${
+          className={`gap-3 flex py-10 overflow-scroll scrollbar-hide transition-all duration-300 ease-in-out ${
             isOpen
               ? "opacity-100 scale-100"
               : "scale-95 md:opacity-100 md:scale-100"
@@ -44,7 +45,7 @@ const AlertHeader = () => {
                 >
                   <div className="font-nunito flex w-fit gap-3 justify-between items-center">
                     <h1
-                      className={`${isOpen ? "block" : "hidden"} ${
+                      className={`w-[8.9rem] ${
                         isActive ? "text-[#0D47A1]" : "text-black/80"
                       } font-medium md:block `}
                     >

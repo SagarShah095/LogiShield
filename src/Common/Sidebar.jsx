@@ -5,84 +5,95 @@ import { AiOutlineTruck } from "react-icons/ai";
 import { CgFileRemove } from "react-icons/cg";
 import { LuOctagonAlert } from "react-icons/lu";
 import { NavLink } from "react-router-dom";
+import { TiThMenu } from "react-icons/ti";
+import { RiCloseLargeLine } from "react-icons/ri";
 
 const Sidebar = () => {
   const [isOpen, setIsOpen] = React.useState(false);
   const [activeMenu, setActiveMenu] = React.useState("Dashboard");
+  const [showContent, setShowContent] = React.useState(true);
 
   const handleOpen = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => {
+      const next = !prev;
+
+      // Hide content during the transition (2 seconds)
+      setShowContent(false);
+      setTimeout(() => setShowContent(true), 300);
+
+      return next;
+    });
   };
 
-  const handleTrue = activeMenu === "Alert center" ? true : false;
-  // console.log("Is True:", handleTrue);
-
-  // console.log("Active Menu:", activeMenu);
+  const handleTrue = activeMenu === "Alert center";
 
   return (
     <div
-      className={`${
-        isOpen ? "absolute left-0 top-0 z-50 w-3/4" : "w-[20%] md:w-1/4"
-      } h-screen bg-white transition-all duration-300 ease-in-out flex flex-col justify-between `}
+      className={`absolute md:relative top-0 left-0 h-screen z-50 bg-white shadow-lg transition-all duration-500 ease-in-out ${
+        isOpen ? "w-64" : "w-0 md:w-1/4"
+      } flex flex-col justify-between`}
     >
-      <div className="container mx-auto">
-        {/* Logo Section */}
-        <div>
-          <img
-            src="/assets/Logo.png"
-            alt="logo"
-            className="hidden md:block text-center w-full h-36 px-5"
-          />
-          {/* Desktop Logo */}
+      {/* Menu Icon for Mobile */}
+      {!isOpen && (
+        <TiThMenu
+          className="absolute top-5 left-4 md:hidden text-2xl cursor-pointer"
+          onClick={handleOpen}
+        />
+      )}
+
+      <div className="flex flex-col px-2 pt-4 transition-all duration-500 ease-in-out">
+        {/* Logo */}
+        <div className="flex items-center justify-center h-24 transition-all duration-300">
           {isOpen ? (
+            <div>
+              <div className="absolute top-4 right-4">
+                <RiCloseLargeLine className=" w-7 h-full"
+                onClick={handleOpen} />
+              </div>
+              <div>
+                <img
+                  src="/assets/Logo.png"
+                  alt="logo"
+                  className="w-full h-28 cursor-pointer px-5"
+                  
+                />
+              </div>
+            </div>
+          ) : (
             <img
               src="/assets/Logo.png"
               alt="logo"
-              className=" md:block text-center w-full h-36 px-5"
-              onClick={handleOpen}
-            />
-          ) : (
-            // Mobile Logo (Clickable)
-            <img
-              src="/assets/Mobile_s_logo.png"
-              alt="mobile logo"
-              className=" md:hidden text-center w-full h-7 my-10 px-5 cursor-pointer"
-              onClick={handleOpen}
+              className="hidden md:block w-full h-28 px-5"
             />
           )}
         </div>
 
-        {/* Profile Section */}
-        <div className="container flex justify-center mx-auto px-2">
-          <div className="flex justify-center md:justify-evenly w-fit p-1 md:w-full border border-gray-800/30 rounded-full md:items-center font-nunito">
-            <img
-              src="/assets/img.jpg"
-              alt=""
-              className="h-8 md:rounded-3xl rounded-full lg:rounded-full"
-            />
-            <div
-              className={`${
-                isOpen ? "block" : "hidden"
-              } md:block transition-all duration-300 ease-in-out`}
-            >
-              <h1 className="lg:text-lg font-semibold">Adin Rose</h1>
-              <p className="xl:text-base sm:text-sm">adinRoseze@gmai.com</p>
-            </div>
-            <RiArrowDropDownLine className="h-10 md:block hidden w-fit" />
+        {/* Profile */}
+        <div
+          className={`flex items-center border md:opacity-100 border-gray-300 rounded-full px-3 py-2 gap-3 mx-auto md:mx-2 transition-all duration-500 ease-in-out ${
+            isOpen ? "opacity-100" : "opacity-0 "
+          }`}
+        >
+          <img
+            src="/assets/img.jpg"
+            className="w-10 h-10 rounded-full object-cover"
+            alt="profile"
+          />
+
+          <div className="transition-opacity duration-300 ease-in">
+            <h1 className="font-semibold">Adin Rose</h1>
+            <p className="text-xs text-gray-600">adinRoseze@gmai.com</p>
           </div>
+
+          <RiArrowDropDownLine className="text-2xl hidden md:block" />
         </div>
 
-        {/* Menu Section */}
+        {/* Menu */}
         <div
-          className={`space-y-3 py-10 transition-all duration-300 ease-in-out ${
-            isOpen
-              ? "opacity-100 scale-100"
-              : "scale-95 md:opacity-100 md:scale-100"
-          } ${isOpen && "block"} md:block`}
+          className={`mt-10 space-y-3 transition-all duration-300 ease-in-out ${
+            isOpen && showContent ? "block" : "hidden md:block"
+          }`}
         >
-          {/* Dashboard */}
-
-          {/* Other Menu Items */}
           {[
             { icon: <FaDropbox />, label: "Dashboard", to: "/" },
             { icon: <AiOutlineTruck />, label: "Shipment", to: "/shipment" },
@@ -93,41 +104,43 @@ const Sidebar = () => {
               to: "/alert-center",
             },
           ].map((item, idx) => (
-            <div key={idx} className="flex justify-center">
-              <NavLink
-                to={item.to}
-                className={({ isActive }) =>
-                  `flex justify-center rounded-xl p-3 cursor-pointer w-fit duration-200 ${
-                    isActive
-                      ? "bg-[#0D47A1] text-white"
-                      : "hover:bg-gray-200/70"
-                  }`
-                }
-              >
-                {({ isActive }) => (
-                  <div className="font-nunito flex w-fit gap-3 justify-between items-center">
-                    <span>{item.icon}</span>
-                    <h1
-                      className={`${isOpen ? "block" : "hidden"} ${
-                        isActive ? "text-white" : "text-black/80"
-                      } font-medium md:block`}
-                      onClick={() => setActiveMenu(item.label)}
-                    >
-                      {item.label}
-                    </h1>
-                  </div>
-                )}
-              </NavLink>
-            </div>
+            <NavLink
+              to={item.to}
+              key={idx}
+              className={({ isActive }) =>
+                `flex items-center gap-3 transition-opacity py-2 px-4 rounded-xl duration-300 ease-in ${
+                  isActive
+                    ? "bg-[#0D47A1] text-white"
+                    : "hover:bg-gray-100 text-gray-800"
+                } ${isOpen ? "justify-start" : "justify-center"}`
+              }
+              onClick={() => setActiveMenu(item.label)}
+            >
+              <span className="text-xl transition-all duration-500 ease-in-out">
+                {item.icon}
+              </span>
+              {showContent && (
+                <span className="font-medium transition-all duration-500 ease-in-out">
+                  {item.label}
+                </span>
+              )}
+              {/* <span className="font-medium hidden md:block transition-all duration-500 ease-in-out">
+                  {item.label}
+                </span> */}
+            </NavLink>
           ))}
         </div>
       </div>
-        {handleTrue && (
-            <div className="flex justify-center items-end gap-3 p-3 cursor-pointer hover:bg-gray-200/70 duration-200">
-              <img src="/assets/exit.png" alt="" />
-              <h1 className="font-medium text-[#C72424]">Alert center</h1>
-            </div>
-        )}
+
+      {/* Bottom Alert Center Text */}
+      {handleTrue && (
+        <div className="flex items-center gap-3 p-4 hover:bg-gray-100 cursor-pointer transition-all duration-300">
+          <img src="/assets/exit.png" alt="" className="w-5 h-5" />
+          {isOpen && (
+            <span className="text-[#C72424] font-medium">Alert center</span>
+          )}
+        </div>
+      )}
     </div>
   );
 };

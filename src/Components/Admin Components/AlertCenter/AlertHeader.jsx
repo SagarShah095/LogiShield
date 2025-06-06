@@ -1,6 +1,6 @@
 import React from "react";
 import AlertTable from './AlertTable';
-import "../../index.css"
+import "../../../index.css";
 
 const AlertHeader = () => {
   const [isOpen, setIsOpen] = React.useState(false);

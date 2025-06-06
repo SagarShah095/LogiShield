@@ -10,7 +10,7 @@ import {
 } from "recharts";
 import { MapPin } from "lucide-react";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import "../../index.css"; // Ensure you have the correct path to your CSS file
+import "../../../index.css"; // Ensure you have the correct path to your CSS file
 
 const data = [
   { day: "Sunday", red: 500, blue: 2000 },

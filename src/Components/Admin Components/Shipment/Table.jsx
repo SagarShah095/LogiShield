@@ -4,7 +4,7 @@ import { CiMenuKebab } from "react-icons/ci";
 import { FaLessThan } from "react-icons/fa6";
 import { FaGreaterThan } from "react-icons/fa6";
 import ShipmentModal from "./ShipmentModal";
-import "../../index.css";
+import "../../../index.css";
 
 const Table = () => {
   const tableData = [

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MdReport } from "react-icons/md";
 import { FaFilter } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-import "../../index.css";
+import "../../../index.css";
 import { AnimatePresence, motion } from "framer-motion";
 
 const Filter = () => {

@@ -2,9 +2,9 @@ import React from "react";
 
 const HeroSection = () => {
   return (
-    <div className="px-14 mt-10">
+    <div className="px-14 mt-24">
       <div>
-        <div className="text-white space-y-12  py-14 bg-[#00000033] px-40">
+        <div className="text-white space-y-12 rounded-xl py-20 bg-[#00000033] px-40">
           <h1 className="text-4xl text-center">
             Comprehensive Logistics Services Built for Speed, Scale, and Success
           </h1>

@@ -13,7 +13,7 @@ const Order = () => {
             Delivering fast, reliable, and cost-effective shipping solutions
             across India and beyond
           </h1>
-          <button className="bg-[#0D47A1] p-3 w-fit text-white rounded-lg font-medium mt-3">
+          <button className="bg-[#0D47A1] hover:bg-[#0f53bd] duration-150 p-3 w-fit text-white rounded-lg font-medium mt-3">
             Join Now
           </button>
         </div>
@@ -31,7 +31,7 @@ const Order = () => {
               placeholder="Type your tracking number here"
               className="placeholder:text-[#FFFFFF80] h-14 p-3 bg-[#00000033] text-white  w-full rounded-md"
             />
-            <button className="text-white bg-[#0D47A1] p-3 w-full rounded-md mt-2">
+            <button className="text-white bg-[#0D47A1] hover:bg-[#0f53bd] duration-150  p-3 w-full rounded-md mt-2">
               Track Order
             </button>
             <div className="flex justify-between">

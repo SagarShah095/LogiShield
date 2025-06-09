@@ -4,7 +4,7 @@ const Questions = () => {
   return (
     <div className="my-16">
       <div className="flex justify-between gap-44">
-        <div className="w-[40%]">
+        <div className="w-[40%] space-y-4">
           <h1 className="text-3xl font-semibold">
             Frequently Asked Questions.
           </h1>

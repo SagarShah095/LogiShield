@@ -11,9 +11,9 @@ const Business = () => {
           </p>
         </div>
         <div className="grid grid-cols-3 gap-10">
-          <div className="bg-white text-start p-6 pr-28 space-y-16 my-5 shadow-xl rounded-xl">
+          <div className="bg-white text-start p-6 pr-28 space-y-10 my-5 shadow-xl rounded-xl">
             <div>
-              <h1 className="text-sm">Time Saving</h1>
+              <h1 className="text-2xl font-semibold">Time Saving</h1>
             </div>
             <div>
               <h1 className="text-3xl font-medium">20%</h1>
@@ -23,9 +23,9 @@ const Business = () => {
               </p>
             </div>
           </div>
-          <div className="bg-white text-start p-6 pr-28 space-y-16 my-5 shadow-xl rounded-xl">
+          <div className="bg-white text-start p-6 pr-28 space-y-10 my-5 shadow-xl rounded-xl">
             <div>
-              <h1 className="text-sm">Time Saving</h1>
+              <h1 className="text-2xl font-semibold">Time Saving</h1>
             </div>
             <div>
               <h1 className="text-3xl font-medium">50%</h1>
@@ -35,9 +35,9 @@ const Business = () => {
               </p>
             </div>
           </div>
-          <div className="bg-white text-start p-6 pr-28 space-y-16 my-5 shadow-xl rounded-xl">
+          <div className="bg-white text-start p-6 pr-28 space-y-10 my-5 shadow-xl rounded-xl">
             <div>
-              <h1 className="text-sm">Time Saving</h1>
+              <h1 className="text-2xl font-semibold">Time Saving</h1>
             </div>
             <div>
               <h1 className="text-3xl font-medium">30%</h1>

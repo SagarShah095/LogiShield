@@ -5,7 +5,7 @@ const Management = () => {
     <div className="mt-14">
       <div>
         <div>
-          <h1>Our Service</h1>
+          <h1 className="font-semibold text-[#0d47a1] uppercase">Our Service</h1>
           <h1 className="text-3xl font-medium">Supply Chain Management</h1>
           <p className="w-[55%] mt-7">
             Optimize your operations with our streamlined supply chain

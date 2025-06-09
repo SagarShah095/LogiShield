@@ -12,6 +12,9 @@ import AlertCenter from "./Pages/Admin/AlertCenter";
 import Home from "./Pages/Employee/Home";
 import { useEffect } from "react";
 import Services from "./Pages/Employee/Services";
+import About from "./Pages/Employee/About";
+import Track from "./Pages/Employee/Track";
+import ContactUs from "./Pages/Employee/ContactUs";
 
 const Layout = ({ children }) => {
   const location = useLocation();
@@ -31,15 +34,18 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/admin-dashboard" element={<Dashboard />} />
         <Route path="/shipment" element={<Shipment />} />
         <Route path="/management" element={<Management />} />
         <Route path="/alert-center" element={<AlertCenter />} />
       </Routes>
       {/* Add more routes as needed */}
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/track-shipment" element={<Track />} />
+        <Route path="/contact" element={<ContactUs />} />
       </Routes>
     </Router>
   );

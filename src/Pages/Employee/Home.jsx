@@ -29,7 +29,7 @@ const Home = () => {
         <Services />
         <News />
         <Questions />
-        <hr className="border border-[#00000033]"/>
+        <hr className="border border-[#00000033]/20"/>
         <Emp_Footer />
       </div>
     </div>

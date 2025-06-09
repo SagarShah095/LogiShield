@@ -13,7 +13,7 @@ const Emp_Navbar = () => {
           </div>
           <div className="flex justify-between w-1/2 mx-36 text-lg">
             {[
-              { label: "Home", path: "/home" },
+              { label: "Home", path: "/" },
               { label: "Services", path: "/services" },
               { label: "About", path: "/about" },
               { label: "Track Shipment", path: "/track-shipment" },
@@ -22,12 +22,11 @@ const Emp_Navbar = () => {
               <div key={index}>
                 <NavLink
                   to={item.path}
-                  onClick={() => setSelect(item.label)}
-                  className={`hover:text-white font-medium transition-colors duration-200 ${
-                    select === item.label
-                      ? "text-white font-bold"
-                      : "text-[#FFFFFF80]"
-                  }`}
+                  className={({ isActive }) =>
+                    `hover:text-white font-medium transition-colors duration-200 ${
+                      isActive ? "text-white font-bold" : "text-[#FFFFFF80]"
+                    }`
+                  }
                 >
                   {item.label}
                 </NavLink>

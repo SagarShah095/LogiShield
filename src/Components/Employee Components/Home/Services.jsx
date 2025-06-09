@@ -68,7 +68,7 @@ const Services = () => {
             with complete transparency and care.
           </p>
         </div>
-        <div className="w-full">
+        <div className="w-full mt-24">
           <div className="grid grid-cols-3 w-full gap-6 justify-between mt-7 ">
             {data.map((item, index) => (
               <div key={index} className="">

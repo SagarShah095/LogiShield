@@ -95,7 +95,7 @@ const Sidebar = () => {
           }`}
         >
           {[
-            { icon: <FaDropbox />, label: "Dashboard", to: "/" },
+            { icon: <FaDropbox />, label: "Dashboard", to: "/admin-dashboard" },
             { icon: <AiOutlineTruck />, label: "Shipment", to: "/shipment" },
             { icon: <CgFileRemove />, label: "Managment", to: "/management" },
             {
